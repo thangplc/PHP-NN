@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <script>
+      function renderSelect(d) {
+        content = "";
+        for (var i = 1; i <= d; i++) {
+          content += " <option >" + i + "</option>";
+        }
+        return content;
+      }
+      console.log(renderSelect(31));
+
+      function renderDay(m) {
+        content = "";
+        switch (m) {
+          case "1":
+          case "3":
+          case "5":
+          case "7":
+          case "8":
+          case "10":
+          case "12":
+            content += renderSelect(31);
+            break;
+          case "4":
+          case "6":
+          case "9":
+          case "11":
+            content += renderSelect(30);
+            break;
+          case "2":
+            // if ((year % 4 == 0 && !(year % 100 == 0)) || year % 400 == 0)
+            //   dayCount = 29;
+            // else dayCount = 28;
+            content += renderSelect(28);
+            break;
+        }
+        document.getElementById("day").innerHTML = content;
+      }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <div class="form-group w-25 mx-auto">
+      <label for="">Chon thang</label>
+      <select
+        class="custom-select"
+        name=""
+        id="month"
+        onchange="renderDay(this.value)"
+      >
+        <option value="" selected>--Chọn--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+
+      <label for="">Ngày: </label>
+      <select class="custom-select" name="day" id="day">
+        <option value="" selected>--Chọn--</option>
+      </select>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- MAIN SCRIPT -->
+    <!-- <script src="./main.js"></script> -->
+  </body>
+</html>
